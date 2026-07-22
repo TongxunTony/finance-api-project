@@ -1,55 +1,71 @@
-# Finance API Project
+Finance API Project
+Overview
 
-## Overview
+This project builds a financial data pipeline that collects and processes financial and economic data from multiple APIs.
 
-This project collects financial and economic data from:
-- FRED
-- Yahoo Finance
-- Alpha Vantage
+The project uses:
 
-The raw API responses are transformed into a standardized JSON schema and exported into JSON and CSV formats.
+FRED API for macroeconomic indicators such as GDP and CPI
+Yahoo Finance API for stock market data such as Apple (AAPL) price information
+Alpha Vantage API for additional financial data testing
 
-## Project Structure
+The collected data is combined, standardized, and exported into JSON and CSV formats for further analysis.
+
+Project Structure
 
 finance-api-project/
-│
+
 ├── main.py
-├── normalizer.py
 ├── snapshot.py
-├── financial_snapshot.json
-├── financial_snapshot.csv
+├── normalizer.py
 ├── requirements.txt
-└── .env (not uploaded)
+├── README.md
+├── financial_snapshot.json
+└── financial_snapshot.csv
 
-## Setup
+Features
+Connects to multiple financial data APIs
+Retrieves stock market and economic indicators
+Uses environment variables to securely store API keys
+Normalizes data into a consistent structure
+Exports processed financial snapshots as JSON and CSV files
+Setup
+Create a virtual environment:
 
-1. Create virtual environment
+python -m venv venv
 
-2. Install dependencies
+Activate the environment:
+
+source venv/bin/activate
+
+Install dependencies:
 
 pip install -r requirements.txt
 
-3. Create .env file
+Create a .env file and add API keys:
 
-Add API keys:
+FRED_API_KEY=your_key
+ALPHA_VANTAGE_API_KEY=your_key
 
-FRED_API_KEY=
-ALPHA_VANTAGE_API_KEY=
+Run
 
-## Run
+Run the project using:
 
 python snapshot.py
 
-## Output
+The program will collect financial data and generate:
 
-The program generates:
-- financial_snapshot.json
-- financial_snapshot.csv
+financial_snapshot.json
+financial_snapshot.csv
+Technologies Used
+Python
+FRED API
+Yahoo Finance API
+Alpha Vantage API
+pandas
+yfinance
+fredapi
+python-dotenv
+Future Improvements
 
-## Normalization Approach
-
-...
-
-## Future Improvements
-
-...
+Future improvements include adding more financial data sources, automating data collection, and applying machine learning models for financial analysis.
