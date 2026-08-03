@@ -1,0 +1,65 @@
+[
+    {
+        "data_source": "Yahoo Finance",
+        "timestamp": "2026-08-02T15:41:50.951765",
+        "symbol": "AAPL",
+        "metric_name": "current_price",
+        "metric_value": 308.91,
+        "units": "USD",
+        "frequency": "daily"
+    },
+    {
+        "data_source": "Yahoo Finance",
+        "timestamp": "2026-08-02T15:41:50.951780",
+        "symbol": "AAPL",
+        "metric_name": "previous_close",
+        "metric_value": 333.43,
+        "units": "USD",
+        "frequency": "daily"
+    },
+    {
+        "data_source": "Yahoo Finance",
+        "timestamp": "2026-08-02T15:41:50.951782",
+        "symbol": "AAPL",
+        "metric_name": "market_cap",
+        "metric_value": 4537070911488,
+        "units": "USD",
+        "frequency": "daily"
+    },
+    {
+        "data_source": "Yahoo Finance",
+        "timestamp": "2026-08-02T15:41:50.951784",
+        "symbol": "AAPL",
+        "metric_name": "52_week_high",
+        "metric_value": 344.57,
+        "units": "USD",
+        "frequency": "daily"
+    },
+    {
+        "data_source": "Yahoo Finance",
+        "timestamp": "2026-08-02T15:41:50.951786",
+        "symbol": "AAPL",
+        "metric_name": "52_week_low",
+        "metric_value": 201.68,
+        "units": "USD",
+        "frequency": "daily"
+    },
+    {
+        "data_source": "FRED",
+        "timestamp": "2026-08-02T15:41:50.951787",
+        "symbol": null,
+        "metric_name": "GDP",
+        "metric_value": 32475.21,
+        "units": "USD",
+        "frequency": "quarterly"
+    },
+    {
+        "data_source": "FRED",
+        "timestamp": "2026-08-02T15:41:50.951788",
+        "symbol": null,
+        "metric_name": "CPI",
+        "metric_value": 332.568,
+        "units": "index",
+        "frequency": "monthly"
+    }
+]
