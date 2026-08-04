@@ -164,3 +164,27 @@ Example standardized record:
 ### Historical Price Visualization
 
 ![Historical Price](historical_price.png)
+
+---
+
+## Executive Summary
+
+This project developed an interactive financial analytics dashboard by integrating financial market data and macroeconomic indicators from multiple sources, including Yahoo Finance, Alpha Vantage, and FRED.
+
+The system demonstrates a complete financial data pipeline, including data collection, data normalization, structured data storage, and interactive visualization through a Streamlit dashboard.
+
+### Key Findings
+
+1. **Company Performance Comparison**
+
+The dashboard enables users to compare multiple companies based on stock prices, market capitalization, historical trends, and financial performance metrics.
+
+2. **Risk and Return Analysis**
+
+The dashboard calculates important financial metrics, including total return, average daily return, volatility, and benchmark comparison, allowing users to evaluate both performance and risk characteristics.
+
+3. **Economic Market Context**
+
+By integrating macroeconomic indicators such as GDP, CPI, unemployment rate, and federal funds rate from FRED, the dashboard provides additional economic context for interpreting financial market data.
+
+Overall, this project demonstrates how multiple financial data sources can be combined into a scalable analytics platform for financial data collection, normalization, visualization, and analysis.
