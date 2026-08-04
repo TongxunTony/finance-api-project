@@ -8,7 +8,8 @@ def standardize_record(
     units,
     frequency,
     symbol=None,
-    timestamp=None
+    observation_date=None,
+    retrieval_timestamp=None
 ):
     """
     Convert raw API data into a common standardized schema.
@@ -16,10 +17,21 @@ def standardize_record(
 
     return {
         "data_source": data_source,
-        "timestamp": timestamp or datetime.now().isoformat(),
+
+        "retrieval_timestamp": (
+            retrieval_timestamp
+            or datetime.now().isoformat()
+        ),
+
+        "observation_date": observation_date,
+
         "symbol": symbol,
-        "metric_name": metric_name,
-        "metric_value": metric_value,
+
+        "metric": metric_name,
+
+        "value": metric_value,
+
         "units": units,
+
         "frequency": frequency
     }

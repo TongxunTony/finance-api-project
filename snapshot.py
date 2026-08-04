@@ -5,30 +5,12 @@ import csv
 import os
 
 from dotenv import load_dotenv
-from fredapi import Fred
 
 from normalizer import standardize_record
+from economic_fetcher import fetch_economic_indicators
 
 
 load_dotenv()
-
-fred = Fred(
-    api_key=os.getenv("FRED_API_KEY")
-)
-
-
-def get_fred_data():
-
-    gdp = fred.get_series_latest_release("GDP").dropna().iloc[-1]
-
-    cpi = fred.get_series_latest_release("CPIAUCSL").dropna().iloc[-1]
-
-    return {
-        "GDP": float(gdp),
-        "CPI": float(cpi)
-    }
-
-
 
 def generate_snapshot():
 
@@ -36,8 +18,10 @@ def generate_snapshot():
 
     info = ticker.info
 
-    fred_data = get_fred_data()
+    economic_data = fetch_economic_indicators()
 
+    print(type(economic_data))
+    print(economic_data)
 
     records = []
 
@@ -101,31 +85,17 @@ def generate_snapshot():
         )
     )
 
-
-    records.append(
+    for item in economic_data:
+        records.append(
         standardize_record(
-            data_source="FRED",
-            metric_name="GDP",
-            metric_value=fred_data["GDP"],
-            units="USD",
-            frequency="quarterly",
-            symbol=None
+            data_source=item["data_source"],
+            metric_name=item["metric"],
+            metric_value=item["value"],
+            units=item["units"],
+            frequency=item["frequency"],
+            symbol=item["series_id"]
         )
     )
-
-
-    records.append(
-        standardize_record(
-            data_source="FRED",
-            metric_name="CPI",
-            metric_value=fred_data["CPI"],
-            units="index",
-            frequency="monthly",
-            symbol=None
-        )
-    )
-
-
     return records
 
 

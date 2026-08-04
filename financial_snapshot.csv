@@ -1,8 +1,10 @@
-data_source,timestamp,symbol,metric_name,metric_value,units,frequency
-Yahoo Finance,2026-08-02T15:41:50.951765,AAPL,current_price,308.91,USD,daily
-Yahoo Finance,2026-08-02T15:41:50.951780,AAPL,previous_close,333.43,USD,daily
-Yahoo Finance,2026-08-02T15:41:50.951782,AAPL,market_cap,4537070911488,USD,daily
-Yahoo Finance,2026-08-02T15:41:50.951784,AAPL,52_week_high,344.57,USD,daily
-Yahoo Finance,2026-08-02T15:41:50.951786,AAPL,52_week_low,201.68,USD,daily
-FRED,2026-08-02T15:41:50.951787,,GDP,32475.21,USD,quarterly
-FRED,2026-08-02T15:41:50.951788,,CPI,332.568,index,monthly
+data_source,retrieval_timestamp,observation_date,symbol,metric,value,units,frequency
+Yahoo Finance,2026-08-03T15:20:47.551030,,AAPL,current_price,308.91,USD,daily
+Yahoo Finance,2026-08-03T15:20:47.551051,,AAPL,previous_close,333.43,USD,daily
+Yahoo Finance,2026-08-03T15:20:47.551058,,AAPL,market_cap,4537070911488,USD,daily
+Yahoo Finance,2026-08-03T15:20:47.551064,,AAPL,52_week_high,344.57,USD,daily
+Yahoo Finance,2026-08-03T15:20:47.551069,,AAPL,52_week_low,201.68,USD,daily
+FRED,2026-08-03T15:20:47.551076,,GDP,Gross Domestic Product,32475.21,Billions of Dollars,Quarterly
+FRED,2026-08-03T15:20:47.551081,,CPIAUCSL,Consumer Price Index,332.568,Index,Monthly
+FRED,2026-08-03T15:20:47.551085,,UNRATE,Unemployment Rate,4.2,Percent,Monthly
+FRED,2026-08-03T15:20:47.551089,,FEDFUNDS,Federal Funds Rate,3.63,Percent,Monthly
