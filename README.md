@@ -147,3 +147,19 @@ Example standardized record:
     "units": "USD",
     "frequency": "daily"
 }
+
+---
+
+## Dashboard Screenshots
+
+### Dashboard Overview
+
+![Dashboard Overview](dashboard_overview.png)
+
+### Financial Analysis and Economic Indicators
+
+![Financial Analysis](financial_analysis.png)
+
+### Historical Price Visualization
+
+![Historical Price](historical_price.png)
