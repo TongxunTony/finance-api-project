@@ -147,6 +147,7 @@ Example standardized record:
     "units": "USD",
     "frequency": "daily"
 }
+```
 
 ---
 
