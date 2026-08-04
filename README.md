@@ -25,6 +25,49 @@ The goal of this project is to create a reusable workflow for collecting, proces
 
 ---
 
+## System Architecture
+
+The project follows a modular financial data pipeline architecture:
+
+```text
+Financial Data Sources
+        |
+        v
++----------------------------+
+| Data Collection Layer      |
+|                            |
+| data_fetcher.py            |
+| economic_fetcher.py        |
++----------------------------+
+        |
+        v
++----------------------------+
+| Data Normalization Layer   |
+|                            |
+| normalizer.py              |
++----------------------------+
+        |
+        v
++----------------------------+
+| Data Storage Layer         |
+|                            |
+| snapshot.py                |
+| CSV / JSON outputs         |
++----------------------------+
+        |
+        v
++----------------------------+
+| Streamlit Dashboard        |
+|                            |
+| app.py                     |
+| Interactive Analysis       |
++----------------------------+
+
+Data Sources:
+- Yahoo Finance
+- Alpha Vantage
+- FRED Economic Data
+
 ## Project Structure
 
 ```text
