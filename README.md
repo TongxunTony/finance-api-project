@@ -27,46 +27,42 @@ The goal of this project is to create a reusable workflow for collecting, proces
 
 ## System Architecture
 
-The project follows a modular financial data pipeline architecture:
+The project follows a modular financial data pipeline architecture. Financial data is collected from multiple APIs, normalized into a common schema, stored in structured formats, and visualized through an interactive Streamlit dashboard.
 
-```text
-Financial Data Sources
-        |
-        v
-+----------------------------+
-| Data Collection Layer      |
-|                            |
-| data_fetcher.py            |
-| economic_fetcher.py        |
-+----------------------------+
-        |
-        v
-+----------------------------+
-| Data Normalization Layer   |
-|                            |
-| normalizer.py              |
-+----------------------------+
-        |
-        v
-+----------------------------+
-| Data Storage Layer         |
-|                            |
-| snapshot.py                |
-| CSV / JSON outputs         |
-+----------------------------+
-        |
-        v
-+----------------------------+
-| Streamlit Dashboard        |
-|                            |
-| app.py                     |
-| Interactive Analysis       |
-+----------------------------+
+```mermaid
+flowchart TD
 
-Data Sources:
-- Yahoo Finance
-- Alpha Vantage
-- FRED Economic Data
+A[Financial Data Sources<br><br>Yahoo Finance<br>Alpha Vantage<br>FRED Economic Data]
+
+B[Data Collection Layer<br><br>data_fetcher.py<br>economic_fetcher.py]
+
+C[Data Normalization Layer<br><br>normalizer.py]
+
+D[Data Storage Layer<br><br>snapshot.py<br>CSV and JSON Outputs]
+
+E[Interactive Dashboard<br><br>Streamlit<br>app.py]
+
+A --> B
+B --> C
+C --> D
+D --> E
+```
+
+### Data Pipeline Overview
+
+1. **Data Collection**
+   - Retrieves stock market data from Yahoo Finance and Alpha Vantage.
+   - Retrieves macroeconomic indicators from FRED.
+
+2. **Data Normalization**
+   - Converts different data sources into a consistent schema.
+   - Ensures financial and economic data can be analyzed together.
+
+3. **Data Storage**
+   - Exports normalized data into CSV and JSON formats.
+
+4. **Dashboard Visualization**
+   - Provides interactive company comparison, historical analysis, benchmark comparison, and economic indicator visualization.
 
 ## Project Structure
 
