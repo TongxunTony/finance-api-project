@@ -139,6 +139,133 @@ Risk Level: Low
 
 ---
 
+## Ranking Results
+
+Based on the calculated risk scores, the companies are ranked from lowest investment risk to highest investment risk.
+
+| Rank | Company | Symbol | Risk Score | Risk Level |
+|------|---------|--------|------------|------------|
+| 1 | Alphabet Inc. | GOOGL | 90 | Low Risk |
+| 2 | Amazon.com Inc. | AMZN | 90 | Low Risk |
+| 3 | Apple Inc. | AAPL | 85 | Low Risk |
+| 4 | Microsoft Corporation | MSFT | 85 | Low Risk |
+| 5 | NVIDIA Corporation | NVDA | 70 | Medium Risk |
+
+### Ranking Interpretation
+
+Companies with higher risk scores receive better rankings because they demonstrate lower overall investment risk.
+
+GOOGL and AMZN receive the highest rankings due to strong profitability indicators, stable business performance, and relatively lower risk factors.
+
+AAPL and MSFT show strong financial stability and receive high scores.
+
+NVDA receives a lower ranking mainly because higher market volatility and valuation risk increase uncertainty, despite strong growth potential.
+
+---
+
+## Risk Flags
+
+The tool also identifies important risk flags that may require additional research.
+
+Risk flags help users understand why a company may have a higher risk score or lower ranking.
+
+The main risk flags include:
+
+- Missing financial data
+- High stock volatility
+- High P/E ratio
+- Lower profitability
+- Unusual or incomplete market data
+
+### Example Risk Flags
+
+| Company | Symbol | Risk Flag | Explanation |
+|---------|--------|-----------|-------------|
+| NVIDIA Corporation | NVDA | Medium Risk | NVDA receives a lower score because higher volatility and valuation risk increase uncertainty. |
+| Apple Inc. | AAPL | Low Risk | AAPL has strong financial stability and no major risk flag in this model. |
+| Microsoft Corporation | MSFT | Low Risk | MSFT has strong financial stability and a low risk classification. |
+| Alphabet Inc. | GOOGL | Low Risk | GOOGL receives a high score because of stable business performance and lower overall risk. |
+| Amazon.com Inc. | AMZN | Low Risk | AMZN receives a high score because the model does not detect major risk concerns. |
+
+These flags are not investment recommendations. They are designed to highlight conditions that may deserve further review.
+
+---
+
+## Decision-Support Summary
+
+The tool provides a short decision-support summary for each company. These summaries help users understand the strengths, weaknesses, and major risk indicators behind each score.
+
+### Apple Inc. (AAPL)
+
+Apple receives a Low Risk classification. The company has strong financial stability, a large market position, and relatively stable business performance. The main area for further review is whether future growth can continue to support its valuation.
+
+### Microsoft Corporation (MSFT)
+
+Microsoft receives a Low Risk classification. The company shows strong business stability, large market capitalization, and diversified revenue sources. Its risk profile is relatively low, although valuation should still be monitored.
+
+### NVIDIA Corporation (NVDA)
+
+NVIDIA receives a Medium Risk classification. The company has strong growth potential, but it also shows higher uncertainty because of valuation risk and market volatility. Investors may need to further investigate whether the growth outlook justifies the risk.
+
+### Alphabet Inc. (GOOGL)
+
+Alphabet receives a Low Risk classification. The company has strong financial performance, large market capitalization, and stable business fundamentals. Its high score suggests lower relative investment risk in this model.
+
+### Amazon.com Inc. (AMZN)
+
+Amazon receives a Low Risk classification. The company has strong market presence and diversified business segments. The model does not identify major risk concerns, but profitability and long-term margin trends should still be reviewed.
+
+---
+
+## Methodology
+
+This section explains the data sources, calculations, assumptions, limitations, and update frequency used in this investment screening tool.
+
+### Data Sources
+
+The tool uses Yahoo Finance data through the `yfinance` Python package.
+
+The data includes company information, current stock prices, market capitalization, valuation metrics, profitability indicators, and historical price data.
+
+### Calculations
+
+The tool collects financial metrics for each company and calculates a risk score.
+
+The risk score starts from 100 points.
+
+The score is adjusted based on:
+
+- Stock volatility
+- P/E ratio
+- Profitability indicators
+- Missing or incomplete financial data
+
+A higher score represents lower investment risk.
+
+### Assumptions
+
+This model assumes that higher volatility indicates higher market risk.
+
+It also assumes that higher valuation ratios, such as a high P/E ratio, may increase investment uncertainty.
+
+The model is designed as a simplified investment screening framework and is not intended to replace professional financial analysis.
+
+### Limitations
+
+The tool depends on data availability from Yahoo Finance.
+
+Some companies may have missing or incomplete financial metrics.
+
+The model does not include all possible risk factors, such as macroeconomic conditions, interest rates, industry competition, management quality, or geopolitical risk.
+
+The risk score should be used as a starting point for further research, not as a final investment recommendation.
+
+### Update Frequency
+
+The data is updated each time the program is run.
+
+Because the tool fetches live financial data from Yahoo Finance, results may change over time as market prices and company metrics update.
+
 ## Project Structure
 
 investment-risk-tool/
