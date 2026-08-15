@@ -1,80 +1,112 @@
 import yfinance as yf
+import numpy as np
 
 
 def fetch_company_data(symbol):
 
     ticker = yf.Ticker(symbol)
 
-    info = ticker.info
+    # ---------- basic info ----------
+    try:
+        info = ticker.info
+    except:
+        info = {}
 
-    # Historical price data
-    history = ticker.history(period="1y")
+    try:
+        fast = ticker.fast_info
+    except:
+        fast = {}
+
+
+    # company name fallback
+    company_name = (
+        info.get("longName")
+        or info.get("shortName")
+        or symbol
+    )
+
+
+    # price fallback
+    current_price = (
+        fast.get("last_price")
+        or fast.get("lastPrice")
+        or info.get("regularMarketPrice")
+        or info.get("previousClose")
+    )
+
+
+    # ---------- historical data ----------
+
+    try:
+        history = ticker.history(
+            period="1y"
+        )
+
+    except:
+        history = None
+
 
     historical_prices = []
 
-    for date, row in history.iterrows():
-        historical_prices.append(
-            {
-                "date": str(date.date()),
-                "close_price": row["Close"],
-                "volume": row["Volume"]
-            }
+
+    if history is not None and not history.empty:
+
+        for date, row in history.iterrows():
+
+            historical_prices.append(
+                {
+                    "date": str(date.date()),
+                    "close_price": float(row["Close"]),
+                    "volume": int(row["Volume"])
+                }
+            )
+
+
+    # ---------- volatility ----------
+
+    volatility = None
+
+    if len(historical_prices) > 20:
+
+        prices = [
+            x["close_price"]
+            for x in historical_prices
+        ]
+
+        returns = np.diff(prices) / prices[:-1]
+
+        volatility = float(
+            np.std(returns) * np.sqrt(252)
         )
 
-    data = {
+
+    return {
+
         "symbol": symbol,
 
-        # Basic company information
-        "company_name": info.get("longName"),
-        "sector": info.get("sector"),
-        "industry": info.get("industry"),
-        "country": info.get("country"),
+        "company_name": company_name,
 
-        # Market information
-        "current_price": info.get("currentPrice"),
-        "previous_close": info.get("previousClose"),
-        "market_cap": info.get("marketCap"),
-        "52_week_high": info.get("fiftyTwoWeekHigh"),
-        "52_week_low": info.get("fiftyTwoWeekLow"),
+        "current_price": current_price,
 
-        # Historical data
-        "historical_prices": historical_prices
+        "market_cap": info.get(
+            "marketCap"
+        ),
+
+        "pe_ratio": info.get(
+            "trailingPE"
+        ),
+
+        "revenue_growth": info.get(
+            "revenueGrowth"
+        ),
+
+        "profit_margin": info.get(
+            "profitMargins"
+        ),
+
+        "volatility": volatility,
+
+        "historical_prices":
+            historical_prices
+
     }
-
-    return data
-
-
-
-def fetch_multiple_companies(symbols):
-
-    results = []
-
-    for symbol in symbols:
-        data = fetch_company_data(symbol)
-
-        print("=" * 40)
-        print("Company:", data["company_name"])
-        print("Symbol:", data["symbol"])
-        print("Current Price:", data["current_price"])
-        print("Market Cap:", data["market_cap"])
-        print("52 Week High:", data["52_week_high"])
-        print("52 Week Low:", data["52_week_low"])
-        print("Historical Records:", len(data["historical_prices"]))
-
-        results.append(data)
-
-    return results
-
-
-
-if __name__ == "__main__":
-
-    symbols = [
-        "AAPL",
-        "MSFT",
-        "NVDA"
-    ]
-
-    data = fetch_multiple_companies(symbols)
-
-    print("Data fetching completed successfully.")

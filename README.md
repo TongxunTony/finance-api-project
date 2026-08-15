@@ -1,110 +1,211 @@
-# Finance API Project
+# Investment Risk Scoring Tool
 
 ## Overview
 
-This project demonstrates a financial data pipeline built with Python. The pipeline connects to multiple financial data APIs, collects market and economic information, standardizes the data format, and exports financial snapshots in JSON and CSV formats.
+This project builds an investment screening and risk scoring tool that evaluates multiple companies using financial data from Yahoo Finance.
 
-The project integrates the following data sources:
+The system collects company financial information, analyzes multiple financial factors, calculates an overall risk score, and classifies companies into different risk levels.
 
-- FRED API (Federal Reserve Economic Data)
-- Yahoo Finance API
-- Alpha Vantage API
-
-The goal of this project is to create a reusable workflow for collecting, processing, and organizing financial data from different sources.
+The goal of this project is to provide a simple framework for comparing companies based on financial performance and investment risk.
 
 ---
 
 ## Features
 
-- Connects to multiple financial APIs
-- Uses environment variables to securely manage API keys
-- Retrieves stock market and economic indicators
-- Converts different data sources into a unified schema
-- Generates standardized financial snapshots
-- Exports processed data into JSON and CSV files
+- Fetches financial data from Yahoo Finance
+- Supports multiple company analysis
+- Calculates investment risk scores
+- Evaluates multiple financial indicators
+- Classifies companies into Low, Medium, and High risk levels
+- Provides comparison results between different companies
+
+---
+
+## Companies Tested
+
+The tool evaluates the following five companies:
+
+| Symbol | Company |
+|---|---|
+| AAPL | Apple Inc. |
+| MSFT | Microsoft Corporation |
+| NVDA | NVIDIA Corporation |
+| GOOGL | Alphabet Inc. |
+| AMZN | Amazon.com Inc. |
+
+---
+
+## Financial Factors
+
+The risk assessment considers multiple financial factors:
+
+### Current Stock Price
+
+The latest available stock price is collected for each company.
+
+### Market Capitalization
+
+Market capitalization is used to represent company size and market value.
+
+### Price-to-Earnings Ratio (P/E Ratio)
+
+The P/E ratio is used to evaluate valuation risk.
+
+A higher P/E ratio may indicate higher valuation risk.
+
+### Revenue Growth
+
+Revenue growth is considered as an indicator of business expansion and company performance.
+
+### Profit Margin
+
+Profit margin is used to evaluate profitability and operational efficiency.
+
+### Stock Volatility
+
+Historical stock prices are analyzed to calculate stock volatility.
+
+Higher volatility indicates higher market risk.
+
+---
+
+## Risk Scoring Method
+
+The risk score starts from 100 points.
+
+The score is adjusted according to different risk factors:
+
+- Higher stock volatility increases risk
+- Higher P/E ratio increases valuation risk
+
+The final risk score is classified into three categories:
+
+| Risk Score | Risk Level |
+|---|---|
+| 80 - 100 | Low Risk |
+| 60 - 79 | Medium Risk |
+| Below 60 | High Risk |
+
+A higher score represents lower investment risk.
+---
+
+## Example Output
+
+The following example shows the output from five tested companies:
+
+AAPL
+
+Company: Apple Inc.
+
+Risk Score: 85
+
+Risk Level: Low
+
+
+MSFT
+
+Company: Microsoft Corporation
+
+Risk Score: 85
+
+Risk Level: Low
+
+
+NVDA
+
+Company: NVIDIA Corporation
+
+Risk Score: 70
+
+Risk Level: Medium
+
+
+GOOGL
+
+Company: Alphabet Inc.
+
+Risk Score: 90
+
+Risk Level: Low
+
+
+AMZN
+
+Company: Amazon.com Inc.
+
+Risk Score: 90
+
+Risk Level: Low
 
 ---
 
 ## Project Structure
 
-```text
-finance-api-project/
-│
+investment-risk-tool/
+
 ├── main.py
-├── snapshot.py
-├── normalizer.py
+
+├── data_fetcher.py
+
+├── risk_scoring.py
+
+├── screening.py
+
 ├── requirements.txt
-├── financial_snapshot.json
-├── financial_snapshot.csv
-├── .gitignore
+
 └── README.md
-```
 
 
 ---
 
-## Data Sources
+## Installation
 
-### Yahoo Finance
+Create a virtual environment:
 
-Yahoo Finance is used to collect company-level market information.
+python -m venv venv
 
-The project retrieves:
 
-- Current stock price
-- Previous closing price
-- Market capitalization
-- 52-week high price
-- 52-week low price
+Activate the environment:
 
-Example company:
+Mac/Linux:
 
-- Apple Inc. (AAPL)
+source venv/bin/activate
 
----
 
-### FRED API
+Install required packages:
 
-FRED (Federal Reserve Economic Data) provides economic indicators.
+pip install -r requirements.txt
 
-The project retrieves:
-
-- Gross Domestic Product (GDP)
-- Consumer Price Index (CPI)
 
 ---
 
-### Alpha Vantage API
+## How to Run
 
-Alpha Vantage provides financial market API connectivity for retrieving financial data.
+Run the investment risk scoring tool:
+
+python main.py
+
+
+The program will collect company data, calculate risk scores, and display the screening results.
 
 ---
 
-## Data Standardization
+## Technologies Used
 
-Since different APIs return data in different formats, this project converts all collected information into a common schema.
+- Python
+- Yahoo Finance API
+- yfinance
+- NumPy
+- Pandas
 
-The standardized schema includes:
+---
 
-| Field | Description |
-|------|-------------|
-| data_source | Source of the data |
-| timestamp | Time when the data was collected |
-| symbol | Stock ticker symbol |
-| metric_name | Name of the financial metric |
-| metric_value | Value of the metric |
-| units | Measurement unit |
-| frequency | Data frequency |
+## Future Improvements
 
-Example standardized record:
+Future improvements may include:
 
-```json
-{
-    "data_source": "Yahoo Finance",
-    "timestamp": "2026-08-02T15:41:50",
-    "symbol": "AAPL",
-    "metric_name": "current_price",
-    "metric_value": 308.91,
-    "units": "USD",
-    "frequency": "daily"
-}
+- Adding more financial indicators
+- Supporting more companies
+- Improving risk scoring algorithms
+- Adding data visualization dashboards
+- Integrating additional financial data sources

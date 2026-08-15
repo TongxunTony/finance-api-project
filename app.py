@@ -32,7 +32,7 @@ data = []
 for symbol in companies:
 
     ticker = yf.Ticker(symbol)
-    info = ticker.info
+    info = ticker.fast_info
 
 
     data.append({
