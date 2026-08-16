@@ -106,7 +106,7 @@ MSFT
 
 Company: Microsoft Corporation
 
-Risk Score: 85
+Risk Score: 90
 
 Risk Level: Low
 
@@ -145,23 +145,25 @@ Based on the calculated risk scores, the companies are ranked from lowest invest
 
 | Rank | Company | Symbol | Risk Score | Risk Level |
 |------|---------|--------|------------|------------|
+| 1 | Microsoft Corporation | MSFT | 90 | Low Risk |
 | 1 | Alphabet Inc. | GOOGL | 90 | Low Risk |
-| 2 | Amazon.com Inc. | AMZN | 90 | Low Risk |
-| 3 | Apple Inc. | AAPL | 85 | Low Risk |
-| 4 | Microsoft Corporation | MSFT | 85 | Low Risk |
+| 1 | Amazon.com Inc. | AMZN | 90 | Low Risk |
+| 4 | Apple Inc. | AAPL | 85 | Low Risk |
 | 5 | NVIDIA Corporation | NVDA | 70 | Medium Risk |
 
 ### Ranking Interpretation
 
 Companies with higher risk scores receive better rankings because they demonstrate lower overall investment risk.
 
-GOOGL and AMZN receive the highest rankings due to strong profitability indicators, stable business performance, and relatively lower risk factors.
+### Ranking Interpretation
 
-AAPL and MSFT show strong financial stability and receive high scores.
+Companies with higher risk scores receive better rankings because they demonstrate lower overall investment risk.
 
-NVDA receives a lower ranking mainly because higher market volatility and valuation risk increase uncertainty, despite strong growth potential.
+MSFT, GOOGL, and AMZN receive the highest rankings with risk scores of 90. These companies show relatively lower risk in this model based on the selected financial indicators.
 
----
+AAPL is also classified as Low Risk, but it receives a slightly lower score because of moderate volatility and valuation-related risk flags.
+
+NVDA receives the lowest ranking among the five companies and is classified as Medium Risk. Its lower score is mainly driven by higher stock volatility and valuation-related risk.
 
 ## Risk Flags
 
@@ -181,15 +183,11 @@ The main risk flags include:
 
 | Company | Symbol | Risk Flag | Explanation |
 |---------|--------|-----------|-------------|
-| NVIDIA Corporation | NVDA | Medium Risk | NVDA receives a lower score because higher volatility and valuation risk increase uncertainty. |
-| Apple Inc. | AAPL | Low Risk | AAPL has strong financial stability and no major risk flag in this model. |
-| Microsoft Corporation | MSFT | Low Risk | MSFT has strong financial stability and a low risk classification. |
-| Alphabet Inc. | GOOGL | Low Risk | GOOGL receives a high score because of stable business performance and lower overall risk. |
-| Amazon.com Inc. | AMZN | Low Risk | AMZN receives a high score because the model does not detect major risk concerns. |
-
-These flags are not investment recommendations. They are designed to highlight conditions that may deserve further review.
-
----
+| Apple Inc. | AAPL | Moderate volatility and valuation risk | AAPL is still classified as Low Risk, but moderate volatility and valuation risk reduce its score slightly. |
+| Microsoft Corporation | MSFT | Low overall risk | MSFT receives one of the highest scores and is classified as Low Risk. |
+| NVIDIA Corporation | NVDA | High volatility and valuation risk | NVDA receives a Medium Risk classification because higher volatility and valuation risk increase uncertainty. |
+| Alphabet Inc. | GOOGL | Low overall risk | GOOGL receives a high score because the model does not detect major risk concerns. |
+| Amazon.com Inc. | AMZN | Low overall risk | AMZN receives a high score and is classified as Low Risk in the current screening results. |
 
 ## Decision-Support Summary
 
